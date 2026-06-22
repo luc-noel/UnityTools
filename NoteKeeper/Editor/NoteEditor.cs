@@ -15,7 +15,7 @@ namespace NoteKeeper
 
         private SerializedProperty _theme;
         // The editor for the NoteTheme scriptable object
-        private Editor _cachedEditor;
+        private NoteThemeEditor _cachedEditor;
         // Caching a copy of the settings to check if it gets changed
         private NoteTheme _cachedTheme;
 
@@ -173,7 +173,7 @@ namespace NoteKeeper
                 if (_cachedTheme == null)
                 {
                     _cachedTheme = (NoteTheme)_theme.objectReferenceValue;
-                    _cachedEditor = CreateEditor(_theme.objectReferenceValue);
+                    _cachedEditor = (NoteThemeEditor)CreateEditor(_theme.objectReferenceValue);
                 }
 
                 EditorGUI.BeginChangeCheck();
@@ -183,8 +183,7 @@ namespace NoteKeeper
                 _cachedEditor.OnInspectorGUI();
 
                 // Draw a NoteTheme reference picker
-                Rect themeRect = GUILayoutUtility.GetLastRect();
-                themeRect.y -= EditorGUIUtility.singleLineHeight * 1.5f;
+                Rect themeRect = _cachedEditor.ObjectFieldRect;
                 themeRect.x = themeRect.xMax - EditorGUIUtility.singleLineHeight - NoteKeeper.EditorPadding / 2;
                 themeRect.size = Vector2.one * 20.0f;
                 EditorGUI.ObjectField(themeRect, _theme, GUIContent.none);

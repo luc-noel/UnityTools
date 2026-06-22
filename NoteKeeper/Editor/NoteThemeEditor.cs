@@ -9,8 +9,9 @@ namespace NoteKeeper
     {
         private NoteTheme _target;
 
-        private GUIStyle _symbolStyle, _tagBoxStyle;
-        private bool _editSymbols = true;
+        private GUIStyle _symbolStyle, _tagBoxStyle, _editStyle;
+        private bool _editSymbols = false;
+        public Rect ObjectFieldRect;
 
         private void OnEnable()
         {
@@ -57,6 +58,9 @@ namespace NoteKeeper
             }
             GUILayout.FlexibleSpace();
             EditorGUILayout.EndHorizontal();
+
+            // Create a rect reference point here to consistently position the object picked in NoteEditor
+            ObjectFieldRect = new Rect(GUILayoutUtility.GetLastRect());
 
             // Draw the symbol editing fields if the foldout is opened
             if (_editSymbols)
