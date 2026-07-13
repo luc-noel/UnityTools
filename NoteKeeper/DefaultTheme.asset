@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8fd50e90bdffd446be13c9160f7b520, type: 3}
+  m_Script: {fileID: 11500000, guid: e9342092400cf36459df4efef89d5775, type: 3}
   m_Name: DefaultTheme
   m_EditorClassIdentifier: 
   Symbols:
@@ -17,7 +17,7 @@ MonoBehaviour:
   - "\u25E4 Low"
   - "\u25E5 Medium"
   - "\u25E2 High"
-  - "\u25E3 Bugs"
+  - "\u25E3 Bug"
   - "\u25A0 TODO"
   Colours:
   - {r: 1, g: 1, b: 1, a: 1}
