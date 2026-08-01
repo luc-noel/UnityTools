@@ -66,9 +66,9 @@ public class EasyReplaceFile
                 string path = Path.ChangeExtension(oldFile, newExtension);
                 File.Move(oldFile, path);
 
+                // Change the .meta file name to match the new file type
                 string metaPath =  oldFile + ".meta";
                 string newMetaPath = path + ".meta";
-
                 File.Move(metaPath, newMetaPath);
             }
         }
