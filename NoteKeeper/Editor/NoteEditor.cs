@@ -100,7 +100,7 @@ namespace NoteKeeper
             rect.size = new Vector2(tagSize, tagSize);
 
             // Draw the tag, using the short symbols and not the full text
-            tag.intValue = EditorGUI.Popup(rect, tag.intValue, _cachedTheme.GetShortSymbols(), _popupStyle);
+            tag.intValue = EditorGUI.Popup(rect, tag.intValue, _cachedTheme.Symbols, _popupStyle);
         }
 
         void DrawListItemsBackground(Rect rect, int index, bool isActive, bool isFocused)
@@ -152,7 +152,7 @@ namespace NoteKeeper
             _textStyle.padding = new RectOffset(NoteKeeper.EditorPadding, NoteKeeper.EditorPadding, NoteKeeper.EditorPadding, NoteKeeper.EditorPadding);
 
             _popupStyle = new GUIStyle(EditorStyles.popup);
-            _popupStyle.alignment = TextAnchor.MiddleCenter;
+            _popupStyle.alignment = TextAnchor.MiddleLeft;
             _popupStyle.fontStyle = FontStyle.Bold;
             _popupStyle.fontSize = 16;
 
