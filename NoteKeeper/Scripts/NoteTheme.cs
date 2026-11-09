@@ -25,11 +25,11 @@ namespace NoteKeeper
         public Color[] Colours = new Color[_options]
         {
             Color.white,
-            new Color32(255, 207, 51, 1),
-            new Color32(255, 145, 77, 1),
-            new Color32(255, 95, 162, 1),
-            new Color32(78, 125, 255, 1),
-            new Color32(51, 214, 201, 1)
+            new Color32(255, 207, 51, 255),
+            new Color32(255, 145, 77, 255),
+            new Color32(255, 95, 162, 255),
+            new Color32(78, 125, 255, 255),
+            new Color32(51, 214, 201, 255)
         };
 
         public Color GetColour(int index, float alpha)
@@ -41,7 +41,7 @@ namespace NoteKeeper
 
         public Color GetColour(int index)
         {
-            return Colours[index];
+            return GetColour(index, 1.0f);
         }
 
         // Returns a list of just the first character of the tag names
@@ -73,6 +73,12 @@ namespace NoteKeeper
             {
                 if (string.IsNullOrWhiteSpace(Symbols[i]))
                     Symbols[i] = NoteKeeper.DefaultSymbol;
+            }
+
+            // We don't allow alpha editing, so enforce full opacity
+            for (int i = 0; i < Colours.Length; i++)
+            {
+                Colours[i].a = 1.0f;
             }
         }
     }

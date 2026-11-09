@@ -87,7 +87,7 @@ namespace NoteKeeper
             text.stringValue = EditorGUI.TextArea(rect, text.stringValue, _textStyle);
 
             // Recolour the GUI after creating the text area
-            // This prevents the notes font from being recoloured
+            // This prevents the notes font from being recoloured and only recolours tags
             Color colour = _cachedTheme.GetColour(tag.intValue);
             if (!isActive || !isFocused)
                 colour.a = 0.5f; // lower opacity when not selected
