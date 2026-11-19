@@ -1,5 +1,4 @@
 using UnityEngine;
-using PhantomCompass;
 
 public class SetRandomFloatBehaviour : StateMachineBehaviour
 {

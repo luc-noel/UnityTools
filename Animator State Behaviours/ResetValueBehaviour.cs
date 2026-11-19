@@ -1,5 +1,4 @@
 using UnityEngine;
-using PhantomCompass;
 using System;
 
 public class ResetValueBehaviour : StateMachineBehaviour
@@ -30,17 +29,11 @@ public class ResetValueBehaviour : StateMachineBehaviour
 
     private void ResetFloatOrInt(Animator animator, string parameter)
     {
-        if (animator.HasBool(parameter))
-        {
+        if (animator.HasParameter(parameter))
             animator.SetBool(parameter, Convert.ToBoolean(resetValue));
-        }
-        else if (animator.HasFloat(parameter))
-        {
+        else if (animator.HasParameter(parameter))
             animator.SetFloat(parameter, resetValue);
-        }
-        else if (animator.HasInteger(parameter))
-        {
+        else if (animator.HasParameter(parameter))
             animator.SetInteger(parameter, (int)resetValue);
-        }
     }
 }
